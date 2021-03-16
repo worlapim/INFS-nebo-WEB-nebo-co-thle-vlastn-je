@@ -1,3 +1,16 @@
 body  {margin-left: 12%;
       margin-right: 12%;
       font-family: Tahoma;}
+      
+.spoiler, .spoiler2{ 
+  color: black; 
+  background-color:black;
+}
+
+.spoiler:hover{
+  color: white;
+  }
+
+.spoiler2:hover { 
+  background-color:white; 
+  }
