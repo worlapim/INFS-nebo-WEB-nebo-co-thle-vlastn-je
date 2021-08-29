@@ -17,3 +17,11 @@
 <i class="fas fa-book"></i>
 <i class="fas fa-th"></i>
 <i class="fas fa-chevron-down"></i>
+<i class="fas fa-user-clock"></i>
+<i class="fas fa-clock"></i>
+<i class="fas fa-comments"></i>
+<i class="fas fa-laptop-code"></i>
+<i class="fas fa-quote-left"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star-half-alt"></i>
+<i class="far fa-star"></i>

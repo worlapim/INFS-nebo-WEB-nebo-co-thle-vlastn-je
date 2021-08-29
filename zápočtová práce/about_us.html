@@ -11,7 +11,7 @@
     </head>
     <body>
         <nav class="first_nav_section one_line not_main">
-            <img alt="EduPlus" src="pictures/fulllogo_white.svg" class="nav_edu">
+            <img alt="EduPlus" src="pictures/fulllogo_blue.svg" class="nav_edu">
             <ul class="menu_links">
                 <li class="dropdown">
                     <span>Home <i class="fas fa-chevron-down"></i></span>
@@ -315,19 +315,74 @@
                 <div class="students_say_pages">
                     <div class="students_say_page2">
                         <div class="students_say_page1">
-                            <p class="students_say_main_text">
-                                Oh man you should have seen how they taught us how to bring
-                                people back to life using only 3m rope and a rusty screwdriver.
-                                This was the day when I first felt like a real man.
-                            </p>
-                            <p class="students_say_sub_text">
-                                Said one student after only 3 grams of cocaine.
-                            </p>
-                            <div class="students_say_dude">
-                                <h3>Greg Hiff</h3>
-                                <div class="students_say_role">student</div>
+                            <div class="students_say_rotatable" style="display:block;">
+                              <p class="students_say_main_text">
+                                  It is getting out of hand. The top 10% of the students own 90% of all ladders. We need to put an end to this once and for all.
+                              </p>
+                              <p class="students_say_sub_text">
+                                  Mentioned during the Ladder War II back in 2020. 
+                              </p>
+                              <div class="one_line students_say_dude">
+                                <img alt="student" src="pictures/person (1).jpg" class="studends_say_profile_pic">
+                                <div class="">
+                                    <h3>Greg Hiff</h3>
+                                    <div class="students_say_role">student</div>
+                                </div>
+                              </div>
                             </div>
-                            <!-- tlaèítka vlevo vpravo -->
+                            <div class="students_say_rotatable" style="display:none;">
+                              <p class="students_say_main_text">
+                                  This is a text, that is supposed to comment on this university and highlight its positive atributes. This sentense is just a filler. 
+                              </p>
+                              <p class="students_say_sub_text">
+                                  Some generic subtext.
+                              </p>
+                              <div class="one_line students_say_dude">
+                                <img alt="student" src="pictures/person (2).jpg" class="studends_say_profile_pic">
+                                <div class="">
+                                    <h3>Paul Freud</h3>
+                                    <div class="students_say_role">student</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="students_say_rotatable" style="display:none;">
+                              <p class="students_say_main_text">
+                                  I like studying other cultures and learning the language of locals was very enlightening. Best trip ever!
+                              </p>
+                              <p class="students_say_sub_text">
+                                  Quoted when visiting Mars.
+                              </p>
+                              <div class="one_line students_say_dude">
+                                <img alt="student" src="pictures/person (3).jpg" class="studends_say_profile_pic">
+                                <div class="">
+                                    <h3>Dana Siren</h3>
+                                    <div class="students_say_role">student</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="students_say_rotatable" style="display:none;">
+                              <p class="students_say_main_text">
+                                  Oh man you should have seen how they taught us how to bring
+                                  people back to life using only 3m rope and a rusty screwdriver.
+                                  This was the day when I first felt like a real women.
+                              </p>
+                              <p class="students_say_sub_text">
+                                  Said one student after only 3 grams of cocaine.
+                              </p>
+                              <div class="one_line students_say_dude">
+                                <img alt="student" src="pictures/person (4).jpg" class="studends_say_profile_pic">
+                                <div class="">
+                                    <h3>Linda Loid</h3>
+                                    <div class="students_say_role">student</div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="students_say_buttons">
+                              <button id="students_say_button1">&larr;</button>
+                              <button id="students_say_button2">&rarr;</button>
+                            </div>
+                            <i class="fas fa-quote-left"></i>
                         </div>
                     </div>
                 </div>
@@ -480,9 +535,10 @@
                         you put over here, free of charge.</p>
                         <form>
                             <fieldset>
-                                <input name="mail" id="mail getterr">
+                                <input  type="text" placeholder="enter your email" name="email" id="email getterr">
                                 </select>
                                 <button type="submit">
+                                    &rarr;
                                 </button>
                             </fieldset>
                         </form>
@@ -493,5 +549,41 @@
                 </div>
             </section>
         </footer>
+        <script>
+            var backButton = document.getElementById("students_say_button1");
+            var nextButton = document.getElementById("students_say_button2");
+            backButton.addEventListener("click", function() {
+                var rotatables = document.getElementsByClassName("students_say_rotatable");
+                var pos;
+                for (var y = 0; y < rotatables.length; y++) {
+                  if (rotatables[y].style.display == "block"){
+                      pos = y;
+                  }
+                  rotatables[y].style.display="none";
+                }
+                if (pos==0) {
+                    pos = rotatables.length - 1;
+                } else {
+                    pos -= 1;
+                }
+                rotatables[pos].style.display="block";
+            });
+            nextButton.addEventListener("click", function() {
+                var rotatables = document.getElementsByClassName("students_say_rotatable");
+                var pos;
+                for (var y = 0; y < rotatables.length; y++) {
+                  if (rotatables[y].style.display == "block"){
+                      pos = y;
+                  }
+                  rotatables[y].style.display="none";
+                }
+                if (pos==rotatables.length - 1) {
+                    pos = 0;
+                } else {
+                    pos += 1;
+                }
+                rotatables[pos].style.display="block";
+            });
+        </script>
     </body>
 </html>
