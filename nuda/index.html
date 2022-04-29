@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>nuda</title>
+        <link rel="stylesheet" href="style.css">
+
+        
+    </head>
+    <body>
+        <div class="alfa animated1"></div>
+    </body>
+    <script>
+        var alfas = document.getElementsByClassName("alfa");
+        for (var i = 0; i < alfas.length; i++){
+            var self = alfas[i]
+            self.onmouseover = function() {mouseOver(self)};
+            /*self.onmouseout = function() {mouseOut(self)};*/
+            self.addEventListener('animationend', () => {
+                aniEnd(self)
+            });
+        }
+        function mouseOver(self) {
+            var old = self.classList[1]
+            delAnimation(self)
+            self.classList.add(getRandomAnimation(old))
+            self.onmouseover = function() {};
+        }
+        function aniEnd(self){
+            self.onmouseover = function() {mouseOver(self)};
+        }
+        function delAnimation(self) {
+            self.classList.remove("animated1")
+            self.classList.remove("animated2")
+            self.classList.remove("animated3")
+            self.classList.remove("animated4")
+            self.classList.remove("animated5")
+        }
+        function getRandomAnimation(old) {
+            var chosen = old
+            var animations = ["animated2","animated3","animated4","animated5",];
+            while (old == chosen){
+                var i = Math.floor(Math.random() * 4);
+                chosen = animations[i]
+            }
+            return chosen
+        }
+    </script>
+</html>
