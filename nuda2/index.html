@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>nuda</title>
+        <link rel="stylesheet" href="style.css">
+
+        
+    </head>
+    <body>
+        <section class="columns">
+            <div class="column">
+                <article class="alfa animated1">
+                    <h3>banán</h3>
+                    <p>
+                        Banán je protáhlé žluté ovoce (nesladké druhy s vyšším obsahem škrobu (plantain) zelenina) a plod banánovníku (epigeická bobule). Jde o velice žádanou komoditu produkovanou zemědělci tropických zemí, kde tvoří významnou složku potravy.
+                    </p>
+                    <a href="https://cs.wikipedia.org/wiki/Ban%C3%A1n">...více</a>
+                </article>
+                <article class="alfa animated1">
+                    <h3>pomeranč</h3>
+                    <p>
+                        Pomeranč (z lat. pomorancium, z pomum, jablko, a arancia, oranžová) je plod pomerančovníku čínského (Citrus sinensis) z čeledi routovité (Rutaceae). Pomerančovníky jsou stromy, zřídka i keře. Pochází pravděpodobně ze subtropických hraničních oblastí Číny a Vietnamu, nikde neroste jako planá rostlina. 
+                    </p>
+                    <a href="https://cs.wikipedia.org/wiki/Pomeran%C4%8D">...více</a>
+                </article>
+                <article class="alfa animated1">
+                    <h3>kokos</h3>
+                    <p>
+                        Kokosový ořech je druh ovoce, dutý nepukavý plod kokosovníku ořechoplodého s tvrdou skořápkou na povrchu, bílou dužinou a kokosovou vodou, kterou obsahuje uvnitř. Měří 20–30 cm a váží 2,5 kg. Roste na kokosových palmách, převážně v tropech. Je to vydatný zdroj energie, používá se v potravinářském sektoru jako pochutina, ale i pro lisování kokosového oleje.
+                    </p>
+                    <a href="https://cs.wikipedia.org/wiki/Kokosov%C3%BD_o%C5%99ech">...více</a>
+                </article>
+            </div>
+            <div class="column">
+                <article class="alfa animated2">
+                    <h3>Kiwi</h3>
+                    <p>
+                        Kiwi je ovoce, plod popínavých dřevin rodu aktinidie, pocházejících z Číny. Plod liány aktinidie lahodné (Actinidia deliciosa) obsahuje velké množství vitamínu C. Velikostí je podobný slepičímu vejci, slupka je hnědá a chlupatá, dužina obvykle zelená s bílým středem, kolem něhož jsou umístěna černá semena. Na jedné liáně může růst až 200 kg plodů.
+                    </p>
+                    <a href="https://cs.wikipedia.org/wiki/Kiwi">...více</a>
+                </article>
+                <article class="alfa animated2">
+                    <h3>Grapefruit</h3>
+                    <p>
+                        Grapefruit, někdy zkráceně grep (botanicky Citrus ×paradisi, resp. Citrus ×aurantium), je subtropická dřevina pěstovaná pro své citrusové plody stejného názvu. Kodifikovaná česká výslovnost je [grejpfrút] nebo [grejpfrut] podle anglické výslovnosti, častější výslovnost [grepfrujt] podle pravopisu je však rovněž správná.
+                    </p>
+                    <a href="https://cs.wikipedia.org/wiki/Grapefruit">...více</a>
+                </article>
+                <article class="alfa animated2">
+                    <h3>Limentka</h3>
+                    <p>
+                        Limeta (též limetka) je souhrnný název pro citrusové plody řazené do kategorie kyseloplodých citrusů, podobně jako citron. Od citronu se odlišují zelenou barvou, velikostí (je menší) a mírou kyselosti (nižší). Sklízí se nezralé, barva je většinou zelená, je ale možné se setkat i se žluto-zelenou barvou. Vnitřek limetky se od citronu liší opět pouze barvou.
+                    </p>
+                    <a href="https://cs.wikipedia.org/wiki/Limeta">...více</a>
+                </article>
+            </div>
+        </section>
+    </body>
+    <script>
+        let alfas = document.getElementsByClassName("alfa");
+        for (var i = 0; i < alfas.length; i++){
+            var self = alfas[i];
+            self.classList.add("moving");
+            asignAniEnd(self)
+            asignMouseOver(self)
+        }
+        function mouseOver(self) {
+            if (self.classList.length == 2){
+                self.classList.add("moving");
+                var old = self.classList[1];
+                delAnimation(self,old);
+                if (old == "animated1"){
+                    self.classList.add("animated2");
+                }
+                else{
+                    self.classList.add("animated1");
+                }
+                /*self.onmouseover = function() {};*/
+                console.log(self)
+            }
+        }
+        function aniEnd(self){
+            self.classList.remove("moving")
+        }
+        function delAnimation(self,old) {
+            self.classList.remove(old);
+        }
+        function asignAniEnd(self){
+            self.addEventListener('animationend', () => aniEnd(self));
+        }
+        function asignMouseOver(self){
+            self.onmouseover = () => mouseOver(self);
+        }
+    </script>
+</html>
